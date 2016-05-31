@@ -562,6 +562,42 @@ input,select{
 	opacity: 0
 }
 
+.car5{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	left: 0;
+}
+
+.car5in{
+    animation: car5sf 0.8s 1s ease-in;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+}
+
+@-webkit-keyframes car5sf{
+	0%{
+		-webkit-transform:scale(1.5);
+	}
+	20%{
+		-webkit-transform:scale(1);
+	}
+	40%{
+		-webkit-transform:scale(1.4);
+	}
+	60%{
+		-webkit-transform:scale(1);
+	}
+	80%{
+		-webkit-transform:scale(1.2);
+	}
+	100%{
+		-webkit-transform:scale(1);
+	}
+}
+
+
 *{
 	font-family: "微软雅黑";
 	color: #000;

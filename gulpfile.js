@@ -4,16 +4,25 @@ var gulp = require('gulp'); //本地安装gulp所用到的地方
 
 
     watch = require('gulp-watch');
+
     less = require('gulp-less');
+
     UglifyJS = require('gulp-uglify');
+
     cssmin = require('gulp-minify-css');
+
     cache = require('gulp-cache');//只对改变的文件执行任务
-    imagemin = require('gulp-imagemin');
-     //确保本地已安装imagemin-pngquant [cnpm install imagemin-pngquant --save-dev]
-    pngquant = require('imagemin-pngquant');
-    //确保本地已安装gulp-cache [cnpm install gulp-cache --save-dev]
-    cache = require('gulp-cache');
+
+    imagemin = require('gulp-imagemin'); //确保本地已安装imagemin-pngquant [cnpm install imagemin-pngquant --save-dev]
+
+    pngquant = require('imagemin-pngquant'); //确保本地已安装gulp-cache [cnpm install gulp-cache --save-dev]
+
     htmlmin = require('gulp-htmlmin');
+    
+    rev = require('gulp-rev-append'); //给页面内的引用添加版本号
+    
+    autoprefixer = require('gulp-autoprefixer');//自动添加浏览器前缀
+
     livereload = require('gulp-livereload');
 
    
@@ -39,6 +48,13 @@ gulp.task('jsmin', function () {
 
 gulp.task('cssmin', function () {
     gulp.src('css/*.css') //该任务针对的文件
+        .pipe(autoprefixer({//添加指定的浏览器前缀
+            browsers: ['last 2 versions', 'Android >= 4.0'],
+            cascade: true, //是否美化属性值 默认：true 像这样：
+            //-webkit-transform: rotate(45deg);
+            //        transform: rotate(45deg);
+            remove:true //是否去掉不必要的前缀 默认：true 
+        }))
         .pipe(cssmin({
         	advanced: false,//类型：Boolean 默认：true [是否开启高级优化（合并选择器等）]
             compatibility: 'ie7',//保留ie7及以下兼容写法 类型：String 默认：''or'*' [启用兼容模式； 'ie7'：IE7兼容模式，'ie8'：IE8兼容模式，'*'：IE9+兼容模式]
@@ -72,9 +88,12 @@ gulp.task('testHtmlmin', function () {
         minifyCSS: true//压缩页面CSS
     };
     gulp.src('*.html')
+        .pipe(rev()) //给页面内指定的引用添加版本号
         .pipe(htmlmin(options))
         .pipe(gulp.dest('dist/'));
 });
+
+
 
 
 gulp.task('watch', function() {

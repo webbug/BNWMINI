@@ -73,9 +73,20 @@ Zepto(function(){
 
        Zepto('.page4').swipeUp(function(){
        	Zepto('.page5_text').addClass('page5_textin');
+              if(!Zepto('.car5').hasClass('car5in')){
+                 Zepto('.car5').addClass('car5in');
+              }else{
+                 Zepto('.car5').removeClass('car5in');
+              }            
+              
        });
        Zepto('.page6').swipeDown(function(){
        	Zepto('.page5_text').addClass('page5_textin');
+              if(!Zepto('.car5').hasClass('car5in')){
+                 Zepto('.car5').addClass('car5in');
+              }else{
+                 Zepto('.car5').removeClass('car5in');
+              }      
        });
        
 
