@@ -216,22 +216,25 @@
                bj.play();
             },2000);
             
+            var soundflag=0;
             Zepto('.musk').tap(function(){
               Zepto('.musk').hide();
               Zepto('.musb').show();
               bj.pause();
+              soundflag=1;
             });
             Zepto('.musb').tap(function(){
               Zepto('.musb').hide();
               Zepto('.musk').show();
               bj.play();
+              soundflag=0;
             });
      
              ab.on('after',function(){
               Zepto('#pages .page').each(function(){
                  if(Zepto(this).css('display')=='block'){
                    inde=Zepto(this).index();
-                    if(inde<5){
+                    if(inde<5 && soundflag==0){
                         Zepto('.musb').hide();
                         Zepto('.musk').show();
                         bj.play();
@@ -245,6 +248,8 @@
                  
                });
              });
+
+
 
 
 
