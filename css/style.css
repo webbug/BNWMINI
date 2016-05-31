@@ -337,12 +337,12 @@ input,select{
   left: 0;
   width: 100%;
   top: 8.5rem;
-   -webkit-transform:translate(-100%,0);
+   -webkit-transform:translate(0,0);
    -webkit-transition:all 0.6s 1s linear;
 }
 
 .car4in{
-   -webkit-transform:translate(0,0);
+   -webkit-transform:translate(10%,0);
 }
 
 .nd{
@@ -389,7 +389,7 @@ input,select{
 .name{
 	position: absolute;
 	left: 4.0rem;
-	width: 4.506667rem;
+	width: 4.506667rem!important;
 	top: 0;
 	height: 1.133333rem;
 	line-height: 1.133333rem;

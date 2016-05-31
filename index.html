@@ -38,7 +38,6 @@
                       <img src="images/musb.png" class="mus musb" />
                    </div>
                    <img class="cyty auto_cenp" src="images/cyty.png" />
-                   <img class="wp_logo" src="images/wp_logo.png" />
                    <img class="auto_cenp icon_dd" src="images/icon_dd.png" />
                 </div>
                 <div class="page page2">
@@ -133,7 +132,7 @@
      </div>
 
      
-        <audio id="bj" src="bj.mp3" controls="controls">
+        <audio id="bj" src="bj.mp3" controls="controls" loop="loop">
         Your browser does not support the audio tag.
         </audio>
 
@@ -215,22 +214,25 @@
                bj.play();
             },2000);
             
+            var soundflag=0;
             Zepto('.musk').tap(function(){
               Zepto('.musk').hide();
               Zepto('.musb').show();
               bj.pause();
+              soundflag=1;
             });
             Zepto('.musb').tap(function(){
               Zepto('.musb').hide();
               Zepto('.musk').show();
               bj.play();
+              soundflag=0;
             });
      
              ab.on('after',function(){
               Zepto('#pages .page').each(function(){
                  if(Zepto(this).css('display')=='block'){
                    inde=Zepto(this).index();
-                    if(inde<5){
+                    if(inde<5 && soundflag==0){
                         Zepto('.musb').hide();
                         Zepto('.musk').show();
                         bj.play();

@@ -1,4 +1,4 @@
-$(function(){
+Zepto(function(){
 
 
 	   /*禁止默认拖动事件*/
@@ -12,7 +12,7 @@ $(function(){
 		Zepto('#wrap').eq(0).css('opacity',1);
        
        Zepto('.con').css({
-       	  'height':$(window).height()+'px',
+       	  'height':Zepto(window).height()+'px',
        	  'top':'0px'
        });
        
@@ -48,7 +48,7 @@ $(function(){
        	Zepto('.page3_text').addClass('page3_textin');
        	Zepto('.page3_bg2').addClass('page3_bg2o');
        });
-       $('.page4').swipeDown(function(){
+       Zepto('.page4').swipeDown(function(){
        	Zepto('.page3_text').addClass('page3_textin');
        	Zepto('.page3_bg2').addClass('page3_bg2o');
        });
